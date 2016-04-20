@@ -2,11 +2,64 @@
 	<head>
 		<title>Web Painter</title>
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/pushy.css">
 	</head>
 	<body>
-		<div id="paint"></div>
+		<nav class="pushy pushy-left">
+            <ul>
+                <li class="pushy-submenu">
+                    <a href="#">Shapes</a>
+                    <ul>
+                        <li class="pushy-link">
+                        	<a href="#" id="line" onclick="shapeClicked()">Line</a>
+                        </li>
+
+                        <li class="pushy-link">
+                        	<a href="#" id="straight-line" onclick="shapeClicked()">Straight Line</a>
+                        </li>
+
+                        <li class="pushy-link">
+                        	<a href="#" id="rectangle" onclick="shapeClicked()">Rectangle</a>
+                        </li>
+
+                        <li class="pushy-link">
+                        	<a href="#" id="oval" onclick="shapeClicked()">Oval</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="pushy-link"><a href="#">
+                	Line/Erase Size
+                	<input type="number" id="border-size" min="0" max="100">
+                </a></li>
+
+                <li class="pushy-link"><a href="#">
+                	Colors
+                	<input type="color" id="color">
+                </a></li>
+
+                <li class="pushy-link"><a href="#" onclick="erase()">
+                	Erase
+                </a></li>
+
+                <li class="pushy-link"><a href="#" onclick="save()">
+                	Save
+                </a></li>
+            </ul>
+        </nav>
+
+        <div id="container">
+
+            <div id="paint">
+            	<div class="menu-btn">&#9776;</div>
+            </div>
+
+        </div>
+
 		<script src="js/jquery-1.12.3.min.js"></script>
 		<script src="js/functions.js"></script>
 		<script src="js/FileSaver.js"></script>
+		<script src="js/pushy.js"></script>
 	</body>
 </html>

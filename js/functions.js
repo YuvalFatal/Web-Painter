@@ -16,6 +16,23 @@ $( document ).ready(function(event) {
 	shape = "oval"
 	name = "painter"
 
+	load = false
+	path = ""
+
+	function clickedColor(btn){
+	    $("button[id!=btn]").each(function (i, el) {
+	        (this).style.backgroundColor = ""
+		 });
+	    document.getElementById(btn).style.backgroundColor = "#d3d3d3"
+	    alert(btn)
+	}
+
+	function buttonValue(val) {
+	    var my_var = val
+	    document.getElementById("range").innerHTML=val;
+	    alert(my_var)
+	}
+
 	$('div').click(function(event){
 		if(fill){
 			$(event.target).css({"background-color": background_color});
@@ -59,6 +76,14 @@ $( document ).ready(function(event) {
 			var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
 			saveAs(blob, name + ".html");
 			save = false
+		}
+
+		if(load){
+			$.get(path, function(data) {
+	        	var fileDom = $(data);
+	        	$('#paint').append(fileDom.find('body'))
+	    	});
+	    	load = false
 		}
 
 		if(clean && new_clean){
