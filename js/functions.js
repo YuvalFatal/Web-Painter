@@ -16,9 +16,6 @@ $( document ).ready(function(event) {
 	shape = "oval"
 	name = "painter"
 
-	load = false
-	path = ""
-
 	$('a').click(function(){
 		id = $(this).attr('id')
 
@@ -90,14 +87,6 @@ $( document ).ready(function(event) {
 			save = false
 		}
 
-		if(load){
-			$.get(path, function(data) {
-	        	var fileDom = $(data);
-	        	$('#paint').append(fileDom.find('body'))
-	    	});
-	    	load = false
-		}
-
 		if(clean && new_clean){
 			draw(element_counter, "rectangle", event.pageX - clean_size, event.pageY - clean_size, event.pageX + clean_size, event.pageY + clean_size, 3, "black", true)
 
@@ -161,50 +150,68 @@ function changeFunction(id){
 			fill=false
 			save=false
 			clean=false
+			load=false
 			break
+
 		case "straight-line":
 			shape = id
 			fill=false
 			save=false
+			load=false
 			clean=false
 			break
+
 		case "rectangle":
 			shape = id
 			fill=false
+			load=false
 			save=false
 			clean=false
 			break
+
 		case "oval":
 			shape = id
 			fill=false
+			load=false
 			save=false
 			clean=false
 			break
+
 		case "border-size":
 			border_size = $("#border-size-val").val()
 			fill=false
+			load=false
 			save=false
 			clean=false
 			break
+
 		case "color":
 			border_color = $("#color-val").val()
 			background_color = $("#color-val").val()
 			fill=false
+			load=false
 			save=false
 			clean=false
 			break
+
 		case "fill":
 			fill = true
+			load=false
 			clean=false
 			save=false
 			break
+
 		case "erase":
+			clean_size = $("#border-size-val").val() / 2
 			clean = true
+			load=false
 			fill=false
 			save=false
 			break
+
 		case "save":
 			save = true
+			load=false
 			fill=false
 			clean=false
 			break
