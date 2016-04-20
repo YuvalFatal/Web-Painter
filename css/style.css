@@ -28,8 +28,10 @@ ul {
 	width: 20px;
 	text-align: center;
 	cursor: pointer;
+	z-index: 100000;
 }
 .menu-btn:hover {
 	opacity: 0.6;
 }
+
 

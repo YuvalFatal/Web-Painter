@@ -12,7 +12,7 @@
 		pushyOpenLeft = 'pushy-open-left', //css class when menu is open (left position)
 		pushyOpenRight = 'pushy-open-right', //css class when menu is open (right position)
 		siteOverlay = $('.site-overlay'), //site overlay
-		menuBtn = $('.menu-btn, .pushy-link'), //css classes to toggle the menu
+		menuBtn = $('.menu-btn'), //css classes to toggle the menu
 		menuSpeed = 200, //jQuery fallback menu speed
 		menuWidth = pushy.width() + 'px', //jQuery fallback menu width
 		submenuClass = '.pushy-submenu',
@@ -88,7 +88,7 @@
     	//hide submenu by default
     	$(submenuClass).addClass(submenuClosedClass);
     	
-    	submenu.children('a').on('click', function(event){
+    	submenu.children('.menu-btn').on('click', function(event){
     		event.preventDefault();
     		$(this).toggleClass(submenuOpenClass)
     			   .next('.pushy-submenu ul').slideToggle(200)
@@ -137,10 +137,6 @@
 		menuBtn.on('click', function(){
 			togglePushy();
 		});
-		//close menu when clicking site overlay
-		siteOverlay.on('click', function(){
-			togglePushy();
-		});
 	}else{
 		//add css class to body
 		body.addClass('no-csstransforms3d');
@@ -165,17 +161,6 @@
 
 		//toggle menu
 		menuBtn.on('click', function(){
-			if (opened) {
-				closePushyFallback();
-				opened = false;
-			} else {
-				openPushyFallback();
-				opened = true;
-			}
-		});
-
-		//close menu when clicking site overlay
-		siteOverlay.on('click', function(){
 			if (opened) {
 				closePushyFallback();
 				opened = false;

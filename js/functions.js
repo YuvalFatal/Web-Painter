@@ -19,19 +19,23 @@ $( document ).ready(function(event) {
 	load = false
 	path = ""
 
-	function clickedColor(btn){
-	    $("button[id!=btn]").each(function (i, el) {
-	        (this).style.backgroundColor = ""
-		 });
-	    document.getElementById(btn).style.backgroundColor = "#d3d3d3"
-	    alert(btn)
-	}
+	$('a').click(function(){
+		id = $(this).attr('id')
 
-	function buttonValue(val) {
-	    var my_var = val
-	    document.getElementById("range").innerHTML=val;
-	    alert(my_var)
-	}
+		changeFunction(id)
+	});
+
+	$('#border-size-val').click(function(){
+		id = $(this).attr('border-size')
+
+		changeFunction(id)
+	});
+
+	$('#color-val').click(function(){
+		id = $(this).attr('color')
+
+		changeFunction(id)
+	});
 
 	$('div').click(function(event){
 		if(fill){
@@ -42,7 +46,7 @@ $( document ).ready(function(event) {
 			$("div").each(function(){
 				element = $(this)
 
-				if (element.attr('id') == "paint" || element.attr('id') == element_counter)
+				if (element.attr('id') == "paint" || element.attr('id') == element_counter || element.attr('id') == "container" || element.attr('class') == "menu-btn")
 					return
 
     			if(checkCollisions(clean_pos, element))
@@ -99,7 +103,6 @@ $( document ).ready(function(event) {
 		}
 
 		if(!clean && !new_clean){
-			console.log('hi')
 			$("#" + element_counter).remove()
 			new_clean = true
 			return
@@ -142,6 +145,63 @@ $( document ).ready(function(event) {
 		element_counter++;
 	});
 });
+
+function changeFunction(id){
+	switch(id){
+		case "line":
+			shape = id
+			fill=false
+			save=false
+			clean=false
+			break
+		case "straight-line":
+			shape = id
+			fill=false
+			save=false
+			clean=false
+			break
+		case "rectangle":
+			shape = id
+			fill=false
+			save=false
+			clean=false
+			break
+		case "oval":
+			shape = id
+			fill=false
+			save=false
+			clean=false
+			break
+		case "border-size":
+			border_size = $("#border-size-val").val()
+			fill=false
+			save=false
+			clean=false
+			break
+		case "color":
+			border_color = $("#color-val").val()
+			background_color = $("#color-val").val()
+			fill=false
+			save=false
+			clean=false
+			break
+		case "fill":
+			fill = true
+			clean=false
+			save=false
+			break
+		case "erase":
+			clean = true
+			fill=false
+			save=false
+			break
+		case "save":
+			save = true
+			fill=false
+			clean=false
+			break
+	}
+}
 
 function getPositions(element) {
 	var posTop = element.offset().top;

@@ -6,44 +6,48 @@
 		<link rel="stylesheet" href="css/pushy.css">
 	</head>
 	<body>
-		<nav class="pushy pushy-left">
+		<nav class="pushy pushy-left" style="width: 300px">
             <ul>
                 <li class="pushy-submenu">
-                    <a href="#">Shapes</a>
+                    <a href="#" id="shapes">Shapes</a>
                     <ul>
                         <li class="pushy-link">
-                        	<a href="#" id="line" onclick="shapeClicked()">Line</a>
+                        	<a href="#" id="line">Line</a>
                         </li>
 
                         <li class="pushy-link">
-                        	<a href="#" id="straight-line" onclick="shapeClicked()">Straight Line</a>
+                        	<a href="#" id="straight-line">Straight Line</a>
                         </li>
 
                         <li class="pushy-link">
-                        	<a href="#" id="rectangle" onclick="shapeClicked()">Rectangle</a>
+                        	<a href="#" id="rectangle">Rectangle</a>
                         </li>
 
                         <li class="pushy-link">
-                        	<a href="#" id="oval" onclick="shapeClicked()">Oval</a>
+                        	<a href="#" id="oval">Oval</a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="pushy-link"><a href="#">
+                <li class="pushy-link"><a href="#" id="border-size">
                 	Line/Erase Size
-                	<input type="number" id="border-size" min="0" max="100">
+                	<input type="range" id="border-size-val" min="0" max="100">
                 </a></li>
 
-                <li class="pushy-link"><a href="#">
+                <li class="pushy-link"><a href="#" id="color">
                 	Colors
-                	<input type="color" id="color">
+                	<input type="color" id="color-val">
                 </a></li>
 
-                <li class="pushy-link"><a href="#" onclick="erase()">
+                <li class="pushy-link"><a id="fill" href="#">
+                	Fill
+                </a></li>
+
+                <li class="pushy-link"><a id="erase" href="#">
                 	Erase
                 </a></li>
 
-                <li class="pushy-link"><a href="#" onclick="save()">
+                <li class="pushy-link"><a id="save" href="#">
                 	Save
                 </a></li>
             </ul>
