@@ -31,7 +31,7 @@ $( document ).ready(function(event) {
 		changeFunction(id)
 	});
 
-	$('#color-val').change(function(){
+	$('#color-val').select(function(){
 		id = $(this).attr('color')
 
 		changeFunction(id)
@@ -63,6 +63,9 @@ $( document ).ready(function(event) {
 	});
 
 	$('#paint').mousedown(function(event){
+		border_color = $("#color-val").val()
+		background_color = $("#color-val").val()
+
 		if(!first_click || fill || clean)
 			return
 
