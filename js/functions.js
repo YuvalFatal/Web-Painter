@@ -352,6 +352,9 @@ function draw_line(element_num, posX, posY, endX, endY, border_size, border_colo
 			'transform-origin': posX + "px," + posY + "px"
 		});
 
+		if(shape == "line")
+			$('#' + element_num).css({"border-radius": "100%"});
+
 		$('#' + element_num).rotate(theta);
 		$('#' + element_num).transformOrigin();
 	}
