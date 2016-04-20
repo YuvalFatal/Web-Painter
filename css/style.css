@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#paint {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
