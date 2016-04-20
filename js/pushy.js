@@ -137,6 +137,12 @@
 		menuBtn.on('click', function(){
 			togglePushy();
 		});
+
+		$(document).keypress(function(e){
+			if(e.which == 102){
+				togglePushy();
+			}
+		});
 	}else{
 		//add css class to body
 		body.addClass('no-csstransforms3d');
@@ -167,6 +173,18 @@
 			} else {
 				openPushyFallback();
 				opened = true;
+			}
+		});
+
+		$(document).keypress(function(e){
+			if(e.which == 102){
+				if (opened) {
+					closePushyFallback();
+					opened = false;
+				} else {
+					openPushyFallback();
+					opened = true;
+				}
 			}
 		});
 	}
