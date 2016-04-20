@@ -25,13 +25,13 @@ $( document ).ready(function(event) {
 		changeFunction(id)
 	});
 
-	$('#border-size-val').click(function(){
+	$('#border-size-val').change(function(){
 		id = $(this).attr('border-size')
 
 		changeFunction(id)
 	});
 
-	$('#color-val').click(function(){
+	$('#color-val').change(function(){
 		id = $(this).attr('color')
 
 		changeFunction(id)
@@ -46,8 +46,13 @@ $( document ).ready(function(event) {
 			$("div").each(function(){
 				element = $(this)
 
-				if (element.attr('id') == "paint" || element.attr('id') == element_counter || element.attr('id') == "container" || element.attr('class') == "menu-btn")
+				if (element.attr('id') == "paint" || element.attr('id') == element_counter || element.attr('id') == "container")
 					return
+
+				if (element.attr('class') == "menu-btn"){
+					clean = false
+					return
+				}
 
     			if(checkCollisions(clean_pos, element))
     			{
